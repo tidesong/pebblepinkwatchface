@@ -1,0 +1,28 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "islandgrove@gmail.com",
+    "longName": "PinkBackground2",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/f1.png",
+                "name": "FAMILYPIC",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "PinkBackground2",
+    "targetPlatforms": [
+        "basalt"
+    ],
+    "uuid": "6327397b-7192-4710-8655-efe3c72fbee2",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
