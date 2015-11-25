@@ -7,13 +7,21 @@ static TextLayer *s_battery_layer;
 static TextLayer *s_bluetooth_layer;
 static GBitmap *s_bitmap;
 static BitmapLayer *s_bitmap_layer;
+static GBitmap *s_bt_status_bitmap;
+static BitmapLayer *s_bt_status_layer;
+static GBitmap *s_bt_status_dc_bitmap;
+static BitmapLayer *s_bt_status_dc_layer;
 
 static void bt_handler(bool connected) {
   // Show current connection state
   if (connected) {
-    text_layer_set_text(s_bluetooth_layer, "<->");
+    text_layer_set_text(s_bluetooth_layer, "");
+    layer_set_hidden((Layer *)s_bt_status_layer, false);
+    layer_set_hidden((Layer *)s_bt_status_dc_layer, true);
   } else {
-    text_layer_set_text(s_bluetooth_layer, "</>");
+    text_layer_set_text(s_bluetooth_layer, "");
+    layer_set_hidden((Layer *)s_bt_status_layer, true);
+    layer_set_hidden((Layer *)s_bt_status_dc_layer, false);
   }
 }
 static void battery_handler(BatteryChargeState new_state) {
@@ -100,6 +108,24 @@ static void main_window_load(Window *window) {
   // Get the current battery level
   battery_handler(battery_state_service_peek());
   
+    
+  //!!!!!!!!!!!!!!!!!!!!!!!!!Bluetooth icon !!!!!!!!!!!!!!!!!!!!!
+  s_bt_status_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BT_CON);
+  s_bt_status_dc_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BT_DISCON);
+
+  s_bt_status_layer = bitmap_layer_create(GRect(0, 0, 20, 30));
+  s_bt_status_dc_layer = bitmap_layer_create(GRect(0, 0, 20, 30));
+  bitmap_layer_set_bitmap(s_bt_status_layer, s_bt_status_bitmap);
+  bitmap_layer_set_bitmap(s_bt_status_dc_layer, s_bt_status_dc_bitmap);
+#if defined(PBL_BW)
+  bitmap_layer_set_compositing_mode(s_bt_status_layer, GCompOpAssign);
+  bitmap_layer_set_compositing_mode(s_bt_status_dc_layer, GCompOpAssign);
+#elif defined(PBL_COLOR)
+  bitmap_layer_set_compositing_mode(s_bt_status_layer, GCompOpSet);
+  bitmap_layer_set_compositing_mode(s_bt_status_dc_layer, GCompOpSet);
+#endif
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_bt_status_layer));
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_bt_status_dc_layer));
   
   //!!!!!!!!!!!!!!!!!!!!!!!!!!Bluetooth info!!!!!!!!!!!!!!!!!!!!!!
   // Create output TextLayer
@@ -197,3 +223,4 @@ int main(void) {
   app_event_loop();
   deinit();
 }
+

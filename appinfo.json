@@ -9,6 +9,21 @@
     "resources": {
         "media": [
             {
+                "file": "images/bt_discon.png",
+                "name": "BT_DISCON",
+                "type": "png"
+            },
+            {
+                "file": "images/bt_con.png",
+                "name": "BT_CON",
+                "type": "png"
+            },
+            {
+                "file": "images/battery.png",
+                "name": "BATTERY",
+                "type": "png"
+            },
+            {
                 "file": "images/f1.png",
                 "name": "FAMILYPIC",
                 "type": "png"
