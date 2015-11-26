@@ -4,34 +4,38 @@
         ""
     ],
     "companyName": "islandgrove@gmail.com",
-    "longName": "PinkBackground2",
+    "longName": "PinkBackground",
     "projectType": "native",
     "resources": {
         "media": [
             {
                 "file": "images/bt_discon.png",
                 "name": "BT_DISCON",
+                "targetPlatforms": [
+                    "basalt"
+                ],
                 "type": "png"
             },
             {
                 "file": "images/bt_con.png",
                 "name": "BT_CON",
-                "type": "png"
-            },
-            {
-                "file": "images/battery.png",
-                "name": "BATTERY",
+                "targetPlatforms": [
+                    "basalt"
+                ],
                 "type": "png"
             },
             {
                 "file": "images/f1.png",
                 "name": "FAMILYPIC",
+                "targetPlatforms": [
+                    "basalt"
+                ],
                 "type": "png"
             }
         ]
     },
     "sdkVersion": "3",
-    "shortName": "PinkBackground2",
+    "shortName": "PinkBackground",
     "targetPlatforms": [
         "basalt"
     ],

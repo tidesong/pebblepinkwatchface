@@ -70,7 +70,7 @@ static void main_window_load(Window *window) {
 
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorMelon);
+  text_layer_set_text_color(s_time_layer, GColorFashionMagenta);
   //text_layer_set_text(s_time_layer, "00:00"); //tmp
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
@@ -86,7 +86,7 @@ static void main_window_load(Window *window) {
 
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_date_layer, GColorClear);
-  text_layer_set_text_color(s_date_layer, GColorMelon);
+  text_layer_set_text_color(s_date_layer, GColorFashionMagenta);
   //text_layer_set_text(s_time_layer, "00:00"); //tmp
   text_layer_set_font(s_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
@@ -98,11 +98,11 @@ static void main_window_load(Window *window) {
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Battery info!!!!!!!!!!!!!!!!!!!!!!!!!
   
    // Create output TextLayer
-  s_battery_layer = text_layer_create(GRect(0, 0, bounds.size.w, 20));
+  s_battery_layer = text_layer_create(GRect(0, 2, bounds.size.w, 20));
   text_layer_set_background_color(s_battery_layer, GColorClear);
-  text_layer_set_text_color(s_battery_layer, GColorWhite);
+  text_layer_set_text_color(s_battery_layer, GColorRoseVale);
   text_layer_set_text_alignment(s_battery_layer, GTextAlignmentRight);
-  text_layer_set_font(s_battery_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
+  text_layer_set_font(s_battery_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(s_battery_layer));
 
   // Get the current battery level
