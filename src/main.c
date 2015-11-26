@@ -205,7 +205,7 @@ static void init() {
   
   
   
-  window_set_background_color(s_main_window, GColorBlack);
+  window_set_background_color(s_main_window, GColorWhite);
 }
 
 
